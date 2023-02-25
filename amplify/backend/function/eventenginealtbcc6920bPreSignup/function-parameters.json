@@ -1,0 +1,18 @@
+{
+  "trigger": true,
+  "modules": [
+    "email-filter-allowlist"
+  ],
+  "parentResource": "eventenginealtbcc6920b",
+  "functionName": "eventenginealtbcc6920bPreSignup",
+  "resourceName": "eventenginealtbcc6920bPreSignup",
+  "parentStack": "auth",
+  "triggerEnvs": [],
+  "triggerDir": "/snapshot/repo/build/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PreSignup",
+  "triggerTemplate": "PreSignup.json.ejs",
+  "triggerEventPath": "PreSignup.event.json",
+  "roleName": "eventenginealtbcc6920bPreSignup",
+  "skipEdit": true,
+  "DOMAINALLOWLIST": "example.com, sub.example.com",
+  "enableCors": false
+}
