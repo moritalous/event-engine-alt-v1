@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { Button, Card, Flex, Heading, Link, TextAreaField, View } from '@aws-amplify/ui-react'
+import { Button, Card, Flex, Heading, Link, View } from '@aws-amplify/ui-react'
+import { API } from 'aws-amplify'
 
 type props = {
   accessKeyId: string,
@@ -10,11 +11,14 @@ type props = {
 
 function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
 
-  const [signinTokenUrl, setSigninTokenUrl] = useState('')
-  const [signinTokenResult, setSigninTokenResult] = useState('')
   const [signinUrl, setSigninUrl] = useState('')
 
   useEffect(() => {
+
+    if (accessKeyId === '' || secretAccessKey === '' || sessionToken === '') {
+      return
+    }
+
     try {
       const JsonSessionString = {
         "sessionId": accessKeyId,
@@ -23,36 +27,32 @@ function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: p
       }
       const JsonSessionStringEncoded = encodeURIComponent(JSON.stringify(JsonSessionString))
 
-      const url = 'https://ap-northeast-1.signin.aws.amazon.com/federation' +
-        '?Action=getSigninToken' +
+      const path = '/federation?Action=getSigninToken' +
         '&SessionDuration=' + (60 * 60 * 12) +
         `&Session=${JsonSessionStringEncoded}`
 
-      setSigninTokenUrl(url)
+      API.get('api70c8d7e0', path, {
 
-    } catch (error) {
-      setSigninTokenUrl('')
-    }
+      }).then((response) => {
+        const signinToken = response['SigninToken']
 
-  }, [accessKeyId, secretAccessKey, sessionToken])
+        const url = 'https://ap-northeast-1.signin.aws.amazon.com/federation' +
+          '?Action=login' +
+          '&Destination=https%3A%2F%2Fconsole.aws.amazon.com%2F' +
+          `&SigninToken=${signinToken}`
 
-  useEffect(() => {
+        setSigninUrl(url)
 
-    try {
-      const signinToken = JSON.parse(signinTokenResult)['SigninToken']
+      }).catch(() => {
+        setSigninUrl('')
 
-      const url = 'https://ap-northeast-1.signin.aws.amazon.com/federation' +
-        '?Action=login' +
-        '&Destination=https%3A%2F%2Fconsole.aws.amazon.com%2F' +
-        `&SigninToken=${signinToken}`
+      })
 
-      setSigninUrl(url)
     } catch (error) {
       setSigninUrl('')
     }
 
-  }, [signinTokenResult])
-
+  }, [accessKeyId, secretAccessKey, sessionToken])
 
   return (
     <Card variation='outlined'>
@@ -60,25 +60,6 @@ function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: p
         <Flex direction={'column'}>
 
           <Heading level={3}>Management Console</Heading>
-
-          <ol>
-            <li>
-              <Link href={signinTokenUrl} isExternal={true} textDecoration={'underline'}>
-                Access the endpoint and retrieves the JSON document with a SigninToken value.
-              </Link>
-            </li>
-            <li>
-              Paste  the JSON document with a SigninToken value.
-            </li>
-          </ol>
-
-          <TextAreaField
-            label='Signin Token'
-            rows={5}
-            placeholder='{"SigninToken":"..."}'
-            value={signinTokenResult}
-            onChange={e => setSigninTokenResult(e.target.value)
-            }></TextAreaField>
 
           <Button
             onClick={(e) => window.open(signinUrl, '_target')}
