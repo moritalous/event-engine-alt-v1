@@ -52,6 +52,22 @@
           "resourceName": "eventenginealtbcc6920bPreSignup"
         }
       ]
+    },
+    "AMPLIFY_function_eventenginealtbcc6920bPreSignup_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealtbcc6920bPreSignup"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventenginealtbcc6920bPreSignup_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealtbcc6920bPreSignup"
+        }
+      ]
     }
   }
 }
