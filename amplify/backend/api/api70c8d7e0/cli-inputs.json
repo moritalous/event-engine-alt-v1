@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "paths": {
+    "/federation": {
+      "name": "/federation",
+      "lambdaFunction": "eventenginealt5e203a7f",
+      "permissions": {
+        "setting": "private",
+        "auth": [
+          "read"
+        ]
+      }
+    }
+  }
+}

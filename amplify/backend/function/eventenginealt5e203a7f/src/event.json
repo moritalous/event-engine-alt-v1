@@ -1,0 +1,10 @@
+{
+  "key1": "value1",
+  "key2": "value2",
+  "key3": "value3",
+  "queryStringParameters": {
+    "Action": "getSigninToken",
+    "SessionDuration": "43200",
+    "Session": "{\"sessionId\":\"xxxxx\",\"sessionKey\":\"xxxxx\",\"sessionToken\":\"xxxxx\"}"
+  }
+}

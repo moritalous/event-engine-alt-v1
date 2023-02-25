@@ -1,4 +1,20 @@
 {
+  "api": {
+    "api70c8d7e0": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "eventenginealt5e203a7f"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
     "eventenginealtbcc6920b": {
       "customAuth": false,
@@ -38,6 +54,11 @@
     }
   },
   "function": {
+    "eventenginealt5e203a7f": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "eventenginealtbcc6920bPreSignup": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -45,6 +66,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_eventenginealt5e203a7f_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealt5e203a7f"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventenginealt5e203a7f_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealt5e203a7f"
+        }
+      ]
+    },
     "AMPLIFY_function_eventenginealtbcc6920bPreSignup_DOMAINALLOWLIST": {
       "usedBy": [
         {
