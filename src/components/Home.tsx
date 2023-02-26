@@ -1,11 +1,12 @@
 
 import { Grid, View } from '@aws-amplify/ui-react';
 
-import Header from './Header';
-import CredentialCard from './CredentialCard';
-import ManagementConsoleCard from './ManagementConsoleCard';
-import { useEffect, useState } from 'react';
 import { Auth } from 'aws-amplify';
+import { useEffect, useState } from 'react';
+import CredentialCard from './CredentialCard';
+import Header from './Header';
+import InformationCard from './InformationCard';
+import ManagementConsoleCard from './ManagementConsoleCard';
 
 
 function Home({ signOut, user }: { signOut: any, user: any }) {
@@ -38,12 +39,10 @@ function Home({ signOut, user }: { signOut: any, user: any }) {
                 <Grid
                     columnGap="1.0rem"
                     rowGap="1.0rem"
-                    templateColumns={{ base: '1fr', large: '1fr 1fr' }}
+                    templateColumns={{ base: '1fr', small: '1fr 1fr', large: '1fr 1fr 1fr' }}
                     alignContent={'center'}
                 >
                     <View
-                        width='fit-content'
-                        margin='0 auto'
                     >
                         <CredentialCard
                             accessKeyId={accessKeyId}
@@ -53,14 +52,16 @@ function Home({ signOut, user }: { signOut: any, user: any }) {
                     </View>
 
                     <View
-                        width='fit-content'
-                        margin='0 auto'
                     >
                         <ManagementConsoleCard
                             accessKeyId={accessKeyId}
                             secretAccessKey={secretAccessKey}
                             sessionToken={sessionToken}
                         ></ManagementConsoleCard>
+                    </View>
+                    <View
+                    >
+                        <InformationCard />
                     </View>
                 </Grid>
             </View>

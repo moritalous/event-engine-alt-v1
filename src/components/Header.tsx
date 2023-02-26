@@ -10,7 +10,7 @@ function Header({ signOut }: any) {
         wrap={'wrap'}
         margin={'0 16px'}
       >
-        <Heading level={1}>Event Engine Alt</Heading>
+        <Heading level={1}>Event Engine Alternative</Heading>
 
         <View marginLeft={'auto'}>
           <Menu>

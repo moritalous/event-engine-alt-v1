@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Button, Card, Flex, Heading, Link, View } from '@aws-amplify/ui-react'
+import { Button, Card, Flex, Heading } from '@aws-amplify/ui-react'
 import { API } from 'aws-amplify'
 
 type props = {
@@ -73,11 +73,6 @@ function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: p
         </Flex>
       </Flex>
 
-      <View as='p'>
-        <Link href='https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html' isExternal>
-          User Guide
-        </Link>
-      </View>
     </Card>
   )
 }
