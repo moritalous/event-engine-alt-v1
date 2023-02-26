@@ -4,10 +4,23 @@
 
 ## 特徴
 
-* メールアドレスを使って、イベント参加者が自由にサインアップ可能
-* サインアップできるメールアドレスのドメインを限定
-* 認証情報とマネジメントコンソールへのアクセスURLを提供
+* イベント参加者が自由にサインアップ可能
+* サインアップできるメールアドレスのドメインを限定可能
+* AWS認証情報とマネジメントコンソールへのアクセスURLを提供
 * (オプション)イベント開催期間のみ権限を付与することも可能
+
+
+## 仕組み
+
+![image](document/images/architecture.png)
+
+IAMユーザーではなくCognitoユーザーを使用します。
+
+Cognitoではサインアップ時にLambdaを呼び出し、サインアップの可否を判定することができます。この機能を使ってメールアドレスのドメインをチェックします。（Amplifyのウィザードに従うと作成できます）
+
+CognitoでサインインしたユーザーはIAMロールが割り当てられるため、一時的なAWS認証情報を保有しています。AWS認証情報があればマネジメントコンソールへのログインURLが発行できます。（[参考URL](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_roles_providers_enable-console-custom-url.html)）
+
+URL発行の際に使用するエンドポイントへのCORSアクセスとなるため、API GatewayとLambdaで中継しています。
 
 
 ## デプロイ手順
@@ -30,7 +43,7 @@
 
     ```
     https://github.com/moritalous/event-engine-alt-v1.git
-    cd cd event-engine-alt-v1/
+    cd event-engine-alt-v1/
     ```
 
 1. プロジェクト設定
@@ -78,7 +91,7 @@
 
     ![image](document/images/signin.png)
 
-    * サインアップ時に指定したドメイン以外のメールアドレスを指定するとエラー
+    * 指定したドメイン以外のメールアドレスでサインアップを試みるとエラー
 
     ![image](document/images/signup.png)
 
@@ -133,6 +146,9 @@ authRole.managedPolicyArns = [
 イベント開催期間をカレンダーに事前に登録し、イベント開始時刻に権限を付与しイベント終了時刻に権限を削除することができます。
 
 Amplifyとは独立したCDKで構築します。
+
+![image](document/images/architecture2.png)
+
 
 1. カレンダーの作成
     
