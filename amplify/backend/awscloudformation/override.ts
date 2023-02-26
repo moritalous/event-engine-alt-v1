@@ -17,7 +17,7 @@ export function override(resources: AmplifyRootStackTemplate) {
                 Statement: [
                     {
                         Resource: "*",
-                        Action: ["*"],
+                        Action: ["ec2:Describe*", "ec2:Get*"],
                         Effect: "Allow",
                     },
                 ],
