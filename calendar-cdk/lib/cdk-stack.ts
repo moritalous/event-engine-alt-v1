@@ -64,7 +64,7 @@ export class CdkStack extends cdk.Stack {
         detailType: ["Calendar State Change"],
         "resources": [calendarArn],
         detail: {
-          "state": ["CLOSE"],
+          "state": ["CLOSED"],
         }
       },
       targets: [
