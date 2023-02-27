@@ -1,5 +1,6 @@
-
+import './CopyButton'
 import { Button, Card, Flex, Heading, Link, TextField, View } from '@aws-amplify/ui-react'
+import { CopyButton } from './CopyButton';
 
 type props = {
   accessKeyId: string,
@@ -34,17 +35,17 @@ function CredentialCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
           <TextField
             label='Access Key Id'
             value={accessKeyId}
-            outerEndComponent=<Button onClick={e => copy(accessKeyId)}>copy</Button>
+            outerEndComponent=<div style={{width: '72px'}}><CopyButton copyText={accessKeyId}></CopyButton></div>
           />
           <TextField
             label='Secret Access Key'
             value={secretAccessKey}
-            outerEndComponent=<Button onClick={e => copy(secretAccessKey)}>copy</Button>
+            outerEndComponent=<div style={{width: '72px'}}><CopyButton copyText={secretAccessKey}></CopyButton></div>
           />
           <TextField
             label='Session Token'
             value={sessionToken}
-            outerEndComponent=<Button onClick={e => copy(sessionToken)}>copy</Button>
+            outerEndComponent=<div style={{width: '72px'}}><CopyButton copyText={sessionToken}></CopyButton></div>
           />
         </Flex>
       </Flex>
