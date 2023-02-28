@@ -1,5 +1,4 @@
-import './CopyButton'
-import { Button, Card, Flex, Heading, Link, TextField, View } from '@aws-amplify/ui-react'
+import { Card, Flex, Heading, Link, TextField, View } from '@aws-amplify/ui-react';
 import { CopyButton } from './CopyButton';
 
 type props = {
@@ -8,24 +7,7 @@ type props = {
   sessionToken: string
 }
 
-async function clipboardWrite(text: string) {
-  try {
-    // @ts-ignore
-    const permission = await navigator.permissions.query({ name: 'clipboard-write' });
-    if (permission.state === 'denied') {
-      throw new Error('Not allowed to write clipboard.');
-    }
-    navigator.clipboard.writeText(text)
-  } catch (error) {
-
-  }
-}
-
 function CredentialCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
-
-  function copy(text: string) {
-    clipboardWrite(text)
-  }
 
   return (
     <Card variation='outlined'>

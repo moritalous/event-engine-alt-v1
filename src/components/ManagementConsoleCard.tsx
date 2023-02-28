@@ -59,7 +59,7 @@ function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: p
       <Flex alignItems='flex-start'>
         <Flex direction={'column'}>
 
-          <Heading level={3}>Management Console</Heading>
+          <Heading level={3}>マネジメントコンソール</Heading>
 
           <Button
             onClick={(e) => window.open(signinUrl, '_target')}
