@@ -1,4 +1,4 @@
-import { Divider, Flex, Heading, Menu, MenuItem, View } from '@aws-amplify/ui-react';
+import { Divider, Flex, Heading, Link, Menu, MenuItem, View } from '@aws-amplify/ui-react';
 
 function Header({ signOut }: any) {
 
@@ -13,9 +13,14 @@ function Header({ signOut }: any) {
         <Heading level={1}>Event Engine Alternative</Heading>
 
         <View marginLeft={'auto'}>
-          <Menu>
-            <MenuItem onClick={signOut}>Sign out</MenuItem>
-          </Menu>
+          <Flex direction={'row'}>
+            <Link href='https://github.com/moritalous/event-engine-alt-v1' isExternal>
+              <img src='/github-mark.svg' width={32} height={32} alt='' />
+            </Link>
+            <Menu>
+              <MenuItem onClick={signOut}>Sign out</MenuItem>
+            </Menu>
+          </Flex>
         </View>
 
       </Flex>
