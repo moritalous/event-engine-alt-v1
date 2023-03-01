@@ -33,7 +33,7 @@ function CredentialCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
       </Flex>
 
       <View as='p'>
-        <Link href='https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html' isExternal>
+        <Link href='https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/cli-configure-files.html' isExternal>
           User Guide
         </Link>
       </View>
