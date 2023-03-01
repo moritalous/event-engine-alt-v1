@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Button, Card, Flex, Heading } from '@aws-amplify/ui-react'
+import { Button, Card, Divider, Flex, Heading } from '@aws-amplify/ui-react'
 import { API } from 'aws-amplify'
 
 type props = {
@@ -56,21 +56,20 @@ function ManagementConsoleCard({ accessKeyId, secretAccessKey, sessionToken }: p
 
   return (
     <Card variation='outlined'>
-      <Flex alignItems='flex-start'>
-        <Flex direction={'column'}>
+      <Flex direction={'column'} width='100%'>
 
-          <Heading level={3}>マネジメントコンソール</Heading>
+        <Heading level={3}>マネジメントコンソール</Heading>
+        <Divider></Divider>
 
-          <Button
-            onClick={(e) => window.open(signinUrl, '_target')}
-            isDisabled={signinUrl === ''}
-            width='fit-content'
-            margin={'0 auto'}
-          >
-            Access to Management Console
-          </Button>
+        <Button
+          onClick={(e) => window.open(signinUrl, '_target')}
+          isDisabled={signinUrl === ''}
+          width='fit-content'
+          margin={'0 auto'}
+        >
+          Access to Management Console
+        </Button>
 
-        </Flex>
       </Flex>
 
     </Card>

@@ -1,4 +1,4 @@
-import { Card, Flex, Heading, Link, ScrollView, TabItem, Tabs, View } from '@aws-amplify/ui-react';
+import { Card, Divider, Flex, Heading, Link, ScrollView, TabItem, Tabs, View } from '@aws-amplify/ui-react';
 import { CopyButton } from './CopyButton';
 
 type props = {
@@ -15,12 +15,6 @@ export AWS_SECRET_ACCESS_KEY=${secretAccessKey}
 export AWS_SESSION_TOKEN=${sessionToken}
 `
 
-  const envvarsCmd = `setx AWS_DEFAULT_REGION ap-northeast-1
-setx AWS_ACCESS_KEY_ID ${accessKeyId}
-setx AWS_SECRET_ACCESS_KEY ${secretAccessKey}
-setx AWS_SESSION_TOKEN ${sessionToken}
-`
-
   const envvarsPowerShell = `$Env:AWS_DEFAULT_REGION="ap-northeast-1"
 $Env:AWS_ACCESS_KEY_ID="${accessKeyId}"
 $Env:AWS_SECRET_ACCESS_KEY="${secretAccessKey}"
@@ -31,10 +25,8 @@ $Env:AWS_SESSION_TOKEN="${sessionToken}"
     <Card variation='outlined'>
       <Flex alignItems='flex-start'>
         <Flex direction={'column'}>
-          <Flex direction={'row'}>
-            <Heading level={3}>AWS環境変数</Heading>
-          </Flex>
-
+          <Heading level={3}>AWS環境変数</Heading>
+          <Divider></Divider>
           <Tabs>
             <TabItem title='Linux/Mac'>
               <ScrollView
@@ -55,7 +47,7 @@ $Env:AWS_SESSION_TOKEN="${sessionToken}"
               </div>
             </TabItem>
             <TabItem title='Windows PowerShell'>
-            <ScrollView
+              <ScrollView
                 style={{ wordBreak: 'break-all' }}
                 height='100px'
                 marginTop='8px'
