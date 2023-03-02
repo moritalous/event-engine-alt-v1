@@ -14,20 +14,21 @@ function CredentialCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
       <Heading level={3}>AWS Credentials</Heading>
       <Divider></Divider>
       <Flex direction={'column'} margin='auto'>
+        <View as='P'>有効期限は1時間です。このページをリロードすると再生成されます。</View>
         <TextField
           label='Access Key Id'
           value={accessKeyId}
-          outerEndComponent=<div style={{ width: '72px' }}><CopyButton copyText={accessKeyId}></CopyButton></div>
+          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={accessKeyId}></CopyButton></div>
         />
         <TextField
           label='Secret Access Key'
           value={secretAccessKey}
-          outerEndComponent=<div style={{ width: '72px' }}><CopyButton copyText={secretAccessKey}></CopyButton></div>
+          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={secretAccessKey}></CopyButton></div>
         />
         <TextField
           label='Session Token'
           value={sessionToken}
-          outerEndComponent=<div style={{ width: '72px' }}><CopyButton copyText={sessionToken}></CopyButton></div>
+          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={sessionToken}></CopyButton></div>
         />
       </Flex>
       <View as='p'>

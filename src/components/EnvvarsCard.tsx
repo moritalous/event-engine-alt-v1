@@ -27,6 +27,7 @@ $Env:AWS_SESSION_TOKEN="${sessionToken}"
         <Flex direction={'column'}>
           <Heading level={3}>AWS環境変数</Heading>
           <Divider></Divider>
+          <View as='P'>有効期限は1時間です。このページをリロードすると再生成されます。</View>
           <Tabs>
             <TabItem title='Linux/Mac'>
               <ScrollView
