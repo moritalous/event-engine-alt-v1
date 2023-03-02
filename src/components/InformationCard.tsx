@@ -5,7 +5,7 @@ function InformationCard() {
   return (
     <Card variation='outlined'>
       <Flex alignItems='flex-start'>
-        <Flex direction={'column'}>
+        <Flex direction={'column'} width='100%'>
           <Heading level={3}>おすすめハンズオン</Heading>
           <Divider></Divider>
           <ul>
