@@ -159,7 +159,11 @@ CloudWatch RUMを有効化していますのでマネジメントコンソール
 
 [GetAppMonitorData API](https://docs.aws.amazon.com/ja_jp/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html)を使用することで利用時刻とメールアドレスの一覧を取得可能です。
 
-* 過去24時間にページにアクセスしたユーザーもメールアドレスを表示
+* 最近アクセスした履歴を表示（画面）
+
+    ![](document/images/admin.png)
+
+* 過去24時間にページにアクセスしたユーザーのメールアドレスを表示（CLI）
 
     ```
     aws rum get-app-monitor-data \
