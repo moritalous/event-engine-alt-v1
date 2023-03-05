@@ -9,6 +9,7 @@
 * イベント参加者が自由にサインアップ可能
 * サインアップできるメールアドレスのドメインを限定可能
 * AWS認証情報とマネジメントコンソールへのアクセスURLを提供
+* 利用状況を確認可能
 * (オプション)イベント開催期間のみ権限を付与することも可能
 
 
@@ -44,7 +45,7 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
 1. ソースの取得
 
     ```
-    https://github.com/moritalous/event-engine-alt-v1.git
+    git clone https://github.com/moritalous/event-engine-alt-v1.git
     cd event-engine-alt-v1/
     ```
 
@@ -78,6 +79,11 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
     | Auth | eventenginealtbcc6920b | Create | awscloudformation |
     | Function | eventenginealt5e203a7f | Create | awscloudformation |
     | Function | eventenginealtbcc6920bPreSignup | Create | awscloudformation |
+
+
+1. CloudWatch RUMのAPPLICATION_IDを修正
+
+    `amplify push`のアウトプットの`appMonitorId`を`src/components/Home.tsx`の`APPLICATION_ID`にセットします。
 
 
 1. 画面の起動(ローカル環境)
@@ -142,6 +148,32 @@ authRole.managedPolicyArns = [
     'arn:aws:iam::aws:policy/ReadOnlyAccess'
 ]
 ```
+
+## 利用状況をチェックする
+
+CloudWatch RUMを有効化していますのでマネジメントコンソールから利用状況が確認できます。
+
+![](document/images/cloudWatch-rum.png)
+
+[GetAppMonitorData API](https://docs.aws.amazon.com/ja_jp/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html)を使用することで利用時刻とメールアドレスの一覧を取得可能です。
+
+* 過去24時間にページにアクセスしたユーザーもメールアドレスを表示
+
+    ```
+    aws rum get-app-monitor-data \
+    --name app-monitor-eventenginealt-dev \
+    --time-range After=`date +%s%3N --date '-1 day'` \
+    --filters "Name=EventType,Values=PageLoad" \
+    | jq -r '[.Events[] | fromjson] | .[] | [(.event_timestamp | ./1000 | .+(60*60*9) | todate), .event_details.email] | @tsv'
+    ```
+
+    ```text
+    2023-03-05T09:41:41Z    mail@example.com
+    2023-03-05T09:24:39Z    mail@example.com
+    2023-03-05T09:24:26Z    mail@example.com
+    2023-03-05T09:22:49Z    mail@example.com
+    2023-03-05T09:22:44Z    mail@example.com
+    ```
 
 ## (オプション)イベント期間のみ自動で権限付与
 
@@ -210,3 +242,4 @@ Amplifyとは独立したCDKで構築します。
     | AWS::Lambda::Function | EventBridgeから呼び出されるLambda関数
     | AWS::Events::Rule | スケジュールが"CLOSED"になった際に実行されるイベント |
     | AWS::Lambda::Permission |
+
