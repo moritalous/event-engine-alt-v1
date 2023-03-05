@@ -1,0 +1,10 @@
+[
+  {
+    "Action": [
+      "rum:GetAppMonitor"
+    ],
+    "Resource": [
+      "arn:aws:rum:ap-northeast-1:*:appmonitor/app-monitor-eventenginealt-${env}"
+    ]
+  }
+]

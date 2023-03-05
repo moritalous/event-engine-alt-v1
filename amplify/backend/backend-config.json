@@ -53,8 +53,45 @@
       "service": "Cognito"
     }
   },
+  "custom": {
+    "customResource2b758e7dcloudwatchrum": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "IdentityPoolId",
+            "IdentityPoolName",
+            "UserPoolId",
+            "UserPoolArn",
+            "UserPoolName",
+            "AppClientIDWeb",
+            "AppClientID"
+          ],
+          "category": "auth",
+          "resourceName": "eventenginealtbcc6920b"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "Region",
+            "LambdaExecutionRole",
+            "LambdaExecutionRoleArn"
+          ],
+          "category": "function",
+          "resourceName": "eventenginealtaf08bca6cfncustomf"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "customCDK"
+    }
+  },
   "function": {
     "eventenginealt5e203a7f": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "eventenginealtaf08bca6cfncustomf": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -79,6 +116,22 @@
         {
           "category": "function",
           "resourceName": "eventenginealt5e203a7f"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventenginealtaf08bca6cfncustomf_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealtaf08bca6cfncustomf"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventenginealtaf08bca6cfncustomf_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealtaf08bca6cfncustomf"
         }
       ]
     },
