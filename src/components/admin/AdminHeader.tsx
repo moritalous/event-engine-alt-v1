@@ -1,19 +1,20 @@
-import { Divider, Flex, Heading, Link, Menu, MenuItem, View } from '@aws-amplify/ui-react';
-import { ReactComponent as GitHubMark } from '../svg/github-mark.svg'
+import { Divider, Flex, Heading, Link, Menu, MenuItem, Text, View } from '@aws-amplify/ui-react';
+import { ReactComponent as GitHubMark } from '../../svg/github-mark.svg'
 import { Link as InnerLink } from "react-router-dom";
 
 
-function Header({ signOut }: any) {
+function AdminHeader({ signOut }: any) {
 
   return (
-    <View>
+    <View
+    >
       <Flex
         direction={'row'}
         alignItems={'center'}
         wrap={'wrap'}
         margin={'0 16px'}
       >
-        <Heading level={1}>Event Engine Alternative</Heading>
+        <Heading level={1}>Event Engine Alternative - Admin</Heading>
 
         <View marginLeft={'auto'}>
           <Flex direction={'row'}>
@@ -22,12 +23,13 @@ function Header({ signOut }: any) {
             </Link>
             <Menu>
               <MenuItem>
-                <InnerLink to={'/Admin'}
+                <InnerLink to={'/'}
                   style={{ textDecoration: 'unset', color: 'var(--amplify-components-button-color)' }}
                   onMouseOut={(e) => e.currentTarget.style.color = 'var(--amplify-components-button-color)'}
                   onMouseOver={(e) => e.currentTarget.style.color = 'var(--amplify-components-button-menu-hover-color)'}
-                >利用状況</InnerLink></MenuItem>
-              <MenuItem onClick={signOut}>Sign out</MenuItem>
+
+                >ホームへ戻る</InnerLink></MenuItem>
+              <MenuItem onClick={signOut} >Sign out</MenuItem>
             </Menu>
           </Flex>
         </View>
@@ -38,4 +40,4 @@ function Header({ signOut }: any) {
   );
 }
 
-export default Header;
+export default AdminHeader;

@@ -7,11 +7,6 @@ export function override(resources: AmplifyRootStackTemplate) {
     const amplifyProjectName = 'eventenginealt'
     const amplifyEnv = 'dev'
 
-    const putRumPolicy = {
-        Effect: "Allow",
-        Resource: `arn:aws:rum:${awsRegion}:${awsAccountId}:appmonitor/app-monitor-${amplifyProjectName}-${amplifyEnv}`,
-        Action: ["rum:PutRumEvents"]
-    }
 
     const authRole = resources.authRole;
 
@@ -31,7 +26,11 @@ export function override(resources: AmplifyRootStackTemplate) {
                         Action: ["ec2:Describe*", "ec2:Get*"],
                         Effect: "Allow",
                     },
-                    putRumPolicy
+                    {
+                        Effect: "Allow",
+                        Resource: `arn:aws:rum:${awsRegion}:${awsAccountId}:appmonitor/app-monitor-${amplifyProjectName}-${amplifyEnv}`,
+                        Action: ["rum:PutRumEvents", "rum:GetAppMonitorData"]
+                    },
                 ],
             },
         },
@@ -46,25 +45,5 @@ export function override(resources: AmplifyRootStackTemplate) {
         ...baseManagedPolicy,
         'arn:aws:iam::aws:policy/ReadOnlyAccess'
     ]
-
-
-    // const unauthRole = resources.unauthRole;
-
-    // const baseUnauthPolicies = Array.isArray(unauthRole.policies)
-    //     ? unauthRole.policies
-    //     : [unauthRole.policies];
-
-    // unauthRole.policies = [
-    //     ...baseUnauthPolicies,
-    //     {
-    //         policyName: "amplify-permissions-custom-resources-unauth",
-    //         policyDocument: {
-    //             Version: "2012-10-17",
-    //             Statement: [
-    //                 putRumPolicy
-    //             ],
-    //         },
-    //     },
-    // ];
 
 }
