@@ -114,6 +114,8 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
     amplify publish
     ```
 
+    `amplify/backend/custom/customResource2b758e7dcloudwatchrum/cdk-stack.ts`の`domain`にドメイン名を指定している箇所があるため、一度デプロイ後、再度`amplify push`を実行してください。
+
 
 ## 付与するIAM権限の変更
 
