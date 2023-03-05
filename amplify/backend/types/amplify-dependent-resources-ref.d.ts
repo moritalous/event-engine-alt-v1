@@ -20,8 +20,7 @@ export type AmplifyDependentResourcesAttributes = {
   "custom": {
     "customResource2b758e7dcloudwatchrum": {
       "AppMonitorId": "string",
-      "AppMonitorName": "string",
-      "IdentityPoolId": "string"
+      "AppMonitorName": "string"
     }
   },
   "function": {

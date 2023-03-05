@@ -18,6 +18,4 @@ const { customResource2b758e7dcloudwatchrum } = custom;
 console.log('Copy/paste these values in public/index.html with CloudWatch RUM code snippet below');
 
 console.log(`appMonitorId ${customResource2b758e7dcloudwatchrum.output.AppMonitorId}`);
-console.log(`appMonitorGuestRoleArn ${customResource2b758e7dcloudwatchrum.output.GuestRoleArn}`);
-console.log(`appMonitoridentityPoolId ${customResource2b758e7dcloudwatchrum.output.IdentityPoolId}`);
 console.log(`awsRegion ${providers.awscloudformation.Region}`);

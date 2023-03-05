@@ -75,9 +75,5 @@ export class cdkStack extends cdk.Stack {
     new cdk.CfnOutput(this, 'AppMonitorId', {
       value: customResource.getAtt('AppMonitorId').toString(),
     });
-
-    new cdk.CfnOutput(this, 'IdentityPoolId', {
-      value: identityPoolId,
-    });
   }
 }
