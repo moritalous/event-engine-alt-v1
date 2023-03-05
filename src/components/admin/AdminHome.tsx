@@ -10,7 +10,7 @@ function AdminHome({ signOut, user }: { signOut: any, user: AmplifyUser | any })
   return (
     <>
       <ThemeProvider theme={{ name: 'darkTheme', overrides: [defaultDarkModeOverride] }} colorMode='dark'>
-        <div style={{ backgroundColor: 'var(--amplify-colors-background-primary)' }}>
+        <div style={{ backgroundColor: 'var(--amplify-colors-background-primary)', minHeight: '100vh' }}>
           <AdminHeader signOut={signOut} />
           <div style={{ padding: '32px' }}>
             <AdminUsageHistory />
