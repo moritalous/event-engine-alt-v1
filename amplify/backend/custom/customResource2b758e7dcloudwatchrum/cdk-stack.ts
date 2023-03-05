@@ -22,10 +22,6 @@ export class cdkStack extends cdk.Stack {
     // const domain = 'xxxxx.amplifyapp.com'
     const domain = 'localhost'
     const appMonitorName = `app-monitor-${amplifyProjectInfo.projectName}-${amplifyProjectInfo.envName}`
-    // const guestRoleName = 'amplify-eventenginealt-dev-92151-unauthRole';
-
-    // const guestRoleArn = `arn:aws:iam::${cdk.Stack.of(this).account}:role/${guestRoleName}`;
-
 
     // Access other Amplify Resources 
     const retVal: AmplifyDependentResourcesAttributes = AmplifyHelpers.addResourceDependency(this,
@@ -50,7 +46,6 @@ export class cdkStack extends cdk.Stack {
       appMonitorConfiguration: {
         allowCookies: true,
         enableXRay: true,
-        // guestRoleArn: guestRoleArn,
         identityPoolId: identityPoolId,
         sessionSampleRate: 1,
         telemetries: ['errors', 'http', 'performance'],
@@ -80,10 +75,6 @@ export class cdkStack extends cdk.Stack {
     new cdk.CfnOutput(this, 'AppMonitorId', {
       value: customResource.getAtt('AppMonitorId').toString(),
     });
-
-    // new cdk.CfnOutput(this, 'GuestRoleArn', {
-    //   value: guestRoleArn,
-    // });
 
     new cdk.CfnOutput(this, 'IdentityPoolId', {
       value: identityPoolId,
