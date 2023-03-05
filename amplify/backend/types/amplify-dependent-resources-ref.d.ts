@@ -17,8 +17,22 @@ export type AmplifyDependentResourcesAttributes = {
       "UserPoolName": "string"
     }
   },
+  "custom": {
+    "customResource2b758e7dcloudwatchrum": {
+      "AppMonitorId": "string",
+      "AppMonitorName": "string",
+      "IdentityPoolId": "string"
+    }
+  },
   "function": {
     "eventenginealt5e203a7f": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "eventenginealtaf08bca6cfncustomf": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
