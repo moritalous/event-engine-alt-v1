@@ -1,9 +1,11 @@
-import { Divider, Flex, Heading, Link, Menu, MenuItem, Text, View } from '@aws-amplify/ui-react';
-import { ReactComponent as GitHubMark } from '../../svg/github-mark.svg'
-import { Link as InnerLink } from "react-router-dom";
+import { Divider, Flex, Heading, Link, Menu, MenuItem, View } from '@aws-amplify/ui-react';
+import { ReactComponent as GitHubMark } from '../../svg/github-mark.svg';
+import { useNavigate } from "react-router-dom";
 
 
 function AdminHeader({ signOut }: any) {
+
+  const navigate = useNavigate()
 
   return (
     <View
@@ -22,13 +24,7 @@ function AdminHeader({ signOut }: any) {
               <GitHubMark width={32} height={32} viewBox='0 0 98 96' />
             </Link>
             <Menu>
-              <MenuItem>
-                <InnerLink to={'/'}
-                  style={{ textDecoration: 'unset', color: 'var(--amplify-components-button-color)' }}
-                  onMouseOut={(e) => e.currentTarget.style.color = 'var(--amplify-components-button-color)'}
-                  onMouseOver={(e) => e.currentTarget.style.color = 'var(--amplify-components-button-menu-hover-color)'}
-
-                >ホームへ戻る</InnerLink></MenuItem>
+              <MenuItem onClick={(e) => navigate('..')}>ホームへ戻る</MenuItem>
               <MenuItem onClick={signOut} >Sign out</MenuItem>
             </Menu>
           </Flex>
