@@ -1,11 +1,10 @@
-import { AmplifyUser, defaultDarkModeOverride } from '@aws-amplify/ui';
-import { ThemeProvider } from '@aws-amplify/ui-react';
+import { defaultDarkModeOverride } from '@aws-amplify/ui';
+import { ThemeProvider, WithAuthenticatorProps } from '@aws-amplify/ui-react';
 import AdminHeader from './AdminHeader';
 import AdminUsageHistory from './AdminUsageHistory';
 
 
-function AdminHome({ signOut, user }: { signOut: any, user: AmplifyUser | any }) {
-
+function AdminHome({ signOut, user }: WithAuthenticatorProps) {
 
   return (
     <>

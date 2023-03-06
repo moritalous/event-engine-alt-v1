@@ -1,6 +1,5 @@
 
-import { AmplifyUser } from '@aws-amplify/ui';
-import { Flex, Grid, View } from '@aws-amplify/ui-react';
+import { Flex, Grid, View, WithAuthenticatorProps } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
 import { AwsRum, AwsRumConfig } from 'aws-rum-web/dist/es/src';
 import { useEffect, useState } from 'react';
@@ -22,7 +21,7 @@ const APPLICATION_ID: string = '5d9fd061-6610-4983-8846-9a5776abcb7d';
 const APPLICATION_VERSION: string = '1.0.0';
 const APPLICATION_REGION: string = 'ap-northeast-1';
 
-function Home({ signOut, user }: { signOut: any, user: AmplifyUser | any }) {
+function Home({ signOut, user }: WithAuthenticatorProps) {
 
   const [accessKeyId, setAccessKeyId] = useState('')
   const [secretAccessKey, setSecretAccessKey] = useState('')
@@ -35,7 +34,7 @@ function Home({ signOut, user }: { signOut: any, user: AmplifyUser | any }) {
         setSecretAccessKey(data['secretAccessKey'])
         setSessionToken(data['sessionToken'])
 
-        const email = (user as AmplifyUser).attributes?.email || ''
+        const email = user?.attributes?.email || ''
 
         const awsRum: AwsRum = new AwsRum(
           APPLICATION_ID,
