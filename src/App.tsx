@@ -27,7 +27,11 @@ const router = createBrowserRouter([
       )}
     </Authenticator>,
   },
-]);
+],
+  {
+    basename: '/'
+  }
+);
 
 function App() {
 
