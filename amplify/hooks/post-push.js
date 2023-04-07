@@ -11,11 +11,14 @@ const amplifyMetaFile = JSON.parse(fs.readFileSync(path.join(
   'amplify-meta.json'
 )));
 
-const { custom, providers } = amplifyMetaFile;
+const { custom, providers, auth } = amplifyMetaFile;
 // Change the name of resourceName below to your Amplify-created resource name if different
 const { customResource2b758e7dcloudwatchrum } = custom;
+const { eventenginealtbcc6920b } = auth;
 
 console.log('Copy/paste these values in public/index.html with CloudWatch RUM code snippet below');
 
 console.log(`appMonitorId ${customResource2b758e7dcloudwatchrum.output.AppMonitorId}`);
 console.log(`awsRegion ${providers.awscloudformation.Region}`);
+
+console.log(`userPoolId ${eventenginealtbcc6920b.output.UserPoolId}`);

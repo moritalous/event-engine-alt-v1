@@ -5,6 +5,6 @@
   },
   {
     "Action": ["cognito-idp:ListUsers"],
-    "Resource": ["arn:aws:cognito-idp:ap-northeast-1:*:userpool/ap-northeast-1_mnlBhrJq9"]
+    "Resource": ["*"]
   }
 ]
