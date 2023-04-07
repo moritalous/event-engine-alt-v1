@@ -3,7 +3,7 @@ const { CloudTrail, CognitoIdentityServiceProvider } = require('aws-sdk');
 const cloudtrail = new CloudTrail();
 const cognitoIsp = new CognitoIdentityServiceProvider();
 
-const userPoolId = 'ap-northeast-1_KXB128OrU'
+const userPoolId = 'xxxxxxxxxxxxxx'
 
 function getEmail(attributes) {
   const ret = attributes.filter((x) => x.Name === 'email')[0]
