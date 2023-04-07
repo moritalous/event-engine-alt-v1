@@ -3,6 +3,8 @@ const { CloudTrail, CognitoIdentityServiceProvider } = require('aws-sdk');
 const cloudtrail = new CloudTrail();
 const cognitoIsp = new CognitoIdentityServiceProvider();
 
+const userPoolId = 'xxxxxxxxxxxxxx'
+
 function getEmail(attributes) {
   const ret = attributes.filter((x) => x.Name === 'email')[0]
   return ret.Value
@@ -54,7 +56,7 @@ exports.handler = async (event) => {
   trailEvents = trailEvents.filter((x) => x.userName.length > 0)
 
   let cognitoUsers = await cognitoIsp.listUsers({
-    UserPoolId: 'ap-northeast-1_mnlBhrJq9'
+    UserPoolId: userPoolId
   }).promise()
   console.log(cognitoUsers)
 
