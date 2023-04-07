@@ -4,6 +4,11 @@ export type AmplifyDependentResourcesAttributes = {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
+    },
+    "apicc2c68d4": {
+      "ApiId": "string",
+      "ApiName": "string",
+      "RootUrl": "string"
     }
   },
   "auth": {
@@ -24,6 +29,13 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
+    "eventenginealt0da88be7": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
     "eventenginealt5e203a7f": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
