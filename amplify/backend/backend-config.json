@@ -13,6 +13,20 @@
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
+    },
+    "apicc2c68d4": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "eventenginealt0da88be7"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
     }
   },
   "auth": {
@@ -86,6 +100,11 @@
     }
   },
   "function": {
+    "eventenginealt0da88be7": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
     "eventenginealt5e203a7f": {
       "build": true,
       "providerPlugin": "awscloudformation",
@@ -103,6 +122,22 @@
     }
   },
   "parameters": {
+    "AMPLIFY_function_eventenginealt0da88be7_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealt0da88be7"
+        }
+      ]
+    },
+    "AMPLIFY_function_eventenginealt0da88be7_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "eventenginealt0da88be7"
+        }
+      ]
+    },
     "AMPLIFY_function_eventenginealt5e203a7f_deploymentBucketName": {
       "usedBy": [
         {
