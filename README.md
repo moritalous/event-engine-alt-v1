@@ -76,8 +76,12 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
     | Category | Resource name | Operation | Provider plugin |
     | --- | --- | --- | --- |
     | Api | api70c8d7e0 | Create | awscloudformation |
+    | Api | apicc2c68d4 | Create | awscloudformation |
     | Auth | eventenginealtbcc6920b | Create | awscloudformation |
+    | Custom | customResource2b758e7dcloudwatchrum | Create | awscloudformation |
+    | Function | eventenginealt0da88be7 | Create | awscloudformation |
     | Function | eventenginealt5e203a7f | Create | awscloudformation |
+    | Function | eventenginealtaf08bca6cfncustomf | Create | awscloudformation |
     | Function | eventenginealtbcc6920bPreSignup | Create | awscloudformation |
 
 
@@ -85,6 +89,15 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
 
     `amplify push`のアウトプットの`appMonitorId`を`src/components/Home.tsx`の`APPLICATION_ID`にセットします。
 
+1. Cognito Userpool IDのIDを設定
+
+    `amplify push`のアウトプットの`userPoolId`を`amplify/backend/function/eventenginealt0da88be7/src/index.js`の`userPoolId`にセットします。
+
+    設定後、再度デプロイを行います。
+
+    ```
+    amplify push
+    ```
 
 1. 画面の起動(ローカル環境)
 
@@ -153,15 +166,21 @@ authRole.managedPolicyArns = [
 
 ## 利用状況をチェックする
 
+### アクセス履歴画面
+
+CloudTrailとCognito User Poolの情報から利用状況を確認できます。
+
+http://localhost:3000/admin
+
+![](document/images/history.png)
+
+### CloudWatch RUM
+
 CloudWatch RUMを有効化していますのでマネジメントコンソールから利用状況が確認できます。
 
 ![](document/images/cloudWatch-rum.png)
 
 [GetAppMonitorData API](https://docs.aws.amazon.com/ja_jp/cloudwatchrum/latest/APIReference/API_GetAppMonitorData.html)を使用することで利用時刻とメールアドレスの一覧を取得可能です。
-
-* 最近アクセスした履歴を表示（画面）
-
-    ![](document/images/admin.png)
 
 * 過去24時間にページにアクセスしたユーザーのメールアドレスを表示（CLI）
 
