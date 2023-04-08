@@ -21,4 +21,6 @@ console.log('Copy/paste these values in public/index.html with CloudWatch RUM co
 console.log(`appMonitorId ${customResource2b758e7dcloudwatchrum.output.AppMonitorId}`);
 console.log(`awsRegion ${providers.awscloudformation.Region}`);
 
+console.log('Copy/paste these values in amplify/backend/function/eventenginealt0da88be7/src/index.js as userPoolId');
+
 console.log(`userPoolId ${eventenginealtbcc6920b.output.UserPoolId}`);
