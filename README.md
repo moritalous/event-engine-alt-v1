@@ -89,9 +89,19 @@ URL発行の際に使用するエンドポイントへのCORSアクセスとな�
 
     `amplify push`のアウトプットの`appMonitorId`を`src/components/Home.tsx`の`APPLICATION_ID`にセットします。
 
+    ```diff
+    - const userPoolId = 'xxxxxxxxxxxxxx'
+    + const userPoolId = 'ap-northeast-1_OKVQxdzek'
+    ```
+
 1. Cognito Userpool IDのIDを設定
 
     `amplify push`のアウトプットの`userPoolId`を`amplify/backend/function/eventenginealt0da88be7/src/index.js`の`userPoolId`にセットします。
+    
+    ```diff
+    - const APPLICATION_ID: string = '5d9fd061-6610-4983-8846-9a5776abcb7d';
+    + const APPLICATION_ID: string = '1b71d4d4-d4f0-44ec-899e-f2470366c7cf';
+    ```
 
     設定後、再度デプロイを行います。
 
