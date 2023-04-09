@@ -16,7 +16,7 @@ const { custom, providers, auth } = amplifyMetaFile;
 const { customResource2b758e7dcloudwatchrum } = custom;
 const { eventenginealtbcc6920b } = auth;
 
-console.log('Copy/paste these values in public/index.html with CloudWatch RUM code snippet below');
+console.log('Copy/paste these values in src/components/Home.tsx with CloudWatch RUM code snippet below');
 
 console.log(`appMonitorId ${customResource2b758e7dcloudwatchrum.output.AppMonitorId}`);
 console.log(`awsRegion ${providers.awscloudformation.Region}`);
