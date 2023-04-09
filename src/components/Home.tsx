@@ -1,7 +1,7 @@
 
 import { Flex, Grid, View, WithAuthenticatorProps } from '@aws-amplify/ui-react';
 import { Auth } from 'aws-amplify';
-import { AwsRum, AwsRumConfig } from 'aws-rum-web/dist/es/src';
+import { AwsRum, AwsRumConfig } from 'aws-rum-web';
 import { useEffect, useState } from 'react';
 import CredentialCard from './CredentialCard';
 import EnvvarsCard from './EnvvarsCard';
