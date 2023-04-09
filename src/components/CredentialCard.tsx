@@ -18,17 +18,17 @@ function CredentialCard({ accessKeyId, secretAccessKey, sessionToken }: props) {
         <TextField
           label='Access Key Id'
           value={accessKeyId}
-          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={accessKeyId}></CopyButton></div>
+          outerEndComponent={<div style={{ width: '92px' }}><CopyButton copyText={accessKeyId}></CopyButton></div>}
         />
         <TextField
           label='Secret Access Key'
           value={secretAccessKey}
-          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={secretAccessKey}></CopyButton></div>
+          outerEndComponent={<div style={{ width: '92px' }}><CopyButton copyText={secretAccessKey}></CopyButton></div>}
         />
         <TextField
           label='Session Token'
           value={sessionToken}
-          outerEndComponent=<div style={{ width: '92px' }}><CopyButton copyText={sessionToken}></CopyButton></div>
+          outerEndComponent={<div style={{ width: '92px' }}><CopyButton copyText={sessionToken}></CopyButton></div>}
         />
       </Flex>
       <View as='p'>
